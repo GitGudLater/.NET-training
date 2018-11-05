@@ -1,0 +1,36 @@
+﻿@model Hometask14.Models.Calculations
+
+@{
+    ViewBag.Title = "CheckYourLuck";
+}
+
+<h2>Check Your Luck : Throw dice or try to defeat the one-handled bandit</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        write 1 for one-handled bandit , or 2 for dice
+    </p>
+    <p>
+        (@Html.TextBoxFor(m => m.X1))
+    </p>
+    <p>
+        One-handled bandit: ( @Html.DisplayTextFor(m => m.NumberA) )   ( @Html.DisplayTextFor(m => m.NumberB) ) ( @Html.DisplayTextFor(m => m.NumberC) )
+    </p>
+    <p>
+        Dice: ( @Html.DisplayTextFor(m => m.X2) )
+    </p>
+
+    @Html.HiddenFor(m => m.NumberA, new { id = "NumberA", Value = @Model.NumberA })
+
+    @Html.HiddenFor(m => m.NumberB, new { id = "NumberB", Value = @Model.NumberB })
+
+    @Html.HiddenFor(m => m.NumberC, new { id = "NumberC", Value = @Model.NumberC })
+
+    @Html.HiddenFor(m => m.X1, new { id = "X1", Value = @Model.X1 })
+
+    @Html.HiddenFor(m => m.X2, new { id = "X2", Value = @Model.X2 })
+
+
+    <input type="submit" value="Good Luck" />
+}

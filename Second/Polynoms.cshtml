@@ -1,0 +1,26 @@
+﻿@model Hometask14.Models.Calculations
+
+@{
+                /**/
+
+                ViewBag.Title = "Polynoms";
+}
+
+<h2>Polynoms</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        ( @Html.TextBoxFor(m => m.NumberA) * (X^2))  +  ( @Html.TextBoxFor(m => m.NumberB) * X )  +  (  @Html.TextBoxFor(m => m.NumberC)  ) = 0
+    </p>
+    <p>
+        X1: @Html.DisplayTextFor(m => m.X1)
+    </p>
+    <p>
+        X2: @Html.DisplayTextFor(m => m.X2)
+    </p>
+    <p>
+        Complex number: @Html.DisplayTextFor(m => m.Complex)
+    </p>
+    <input type="submit" value="Get result" />
+}

@@ -1,0 +1,16 @@
+﻿@model Hometask14.Models.Calculations
+
+@{
+    ViewBag.Title = "SimpleOperations";
+}
+
+<h2>SimpleOperations</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        ( number A @Html.TextBoxFor(m => m.NumberA) )   @Html.TextBoxFor(m => m.Solution) ( number B   @Html.TextBoxFor(m => m.NumberB)   ) =    @Html.DisplayTextFor(m => m.NumberC)
+
+    </p>
+    <input type="submit" value="Get result" />
+}

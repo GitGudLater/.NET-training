@@ -1,0 +1,26 @@
+﻿@model Hometask14.Models.Calculations
+
+@{
+    ViewBag.Title = "SolutionOfSimpleOperations";
+}
+
+<h2>SolutionOfSimpleOperations</h2>
+
+@using (Html.BeginForm())
+{
+    <p>
+        ( @Html.DisplayTextFor(m => m.NumberA) )   @Html.DisplayTextFor(m => m.Solution) ( @Html.DisplayTextFor(m => m.NumberC)   ) =    @Html.TextBoxFor(m => m.X1)
+
+    </p>
+
+    <p>
+        @Html.DisplayTextFor(m => m.Complex)
+    </p>
+
+    @Html.HiddenFor(m => m.NumberA, new { id = "NumberA", Value = @Model.NumberA })
+
+    @Html.HiddenFor(m => m.NumberC, new { id = "NumberC", Value = @Model.NumberC })
+
+    @Html.HiddenFor(m => m.Solution, new { id = "Solution", Value = @Model.Solution })
+    <input type="submit" value="Get result" />
+}
