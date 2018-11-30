@@ -1,0 +1,68 @@
+﻿
+@model IEnumerable<EpamLabRab.Models.PersonDatabase>
+@{
+    ViewBag.Title = "Base";
+}
+<h2>DatabseForm</h2>
+
+<h2>Base</h2>
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Select</th>
+                <th>ID</th>
+                <th>FirstName</th>
+                <th>Middle Name</th>
+                <th>Last Name</th>
+                <th>E-mail</th>
+                <th>Age</th>
+                <th>Phone</th>
+                <th>Adress</th>
+            </tr>
+        </thead>
+        <tbody id="DataEntityBase">
+            @foreach (EpamLabRab.Models.PersonDatabase m in Model)
+            {
+                <tr>
+                    <th><input type="radio" name="id" value="@m.ID" /></th>
+                    <th>@m.ID</th>
+                    <th>@m.Name</th>
+                    <th>@m.MiddleName</th>
+                    <th>@m.LastName</th>
+                    <th>@m.Email</th>
+                    <th>@m.Age</th>
+                    <th>@m.Phone</th>
+                    <th>@m.Adress</th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <div class="col-md-4">
+        <input class="form-control" id="filter" type="text" placeholder="ID Filter" />
+    </div>
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4">
+        @Html.ActionLink("Add", "PersonForm", "Database", new { id = 1 }, new { @class = "btn-default btn" })
+        <br />
+        <input type="submit" name="name" value="Change" class="btn-default btn" />
+        <br />
+        <input type="submit" name="name" value="Delete" class="btn-default btn" />
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    $("#filter").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#UserContext tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
